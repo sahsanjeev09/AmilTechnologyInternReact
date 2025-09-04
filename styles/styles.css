@@ -1,0 +1,122 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+/* Hide the checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -250px; /* Hidden by default */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #0d1b2a;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+/* Sidebar Title */
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #00c4ff;
+}
+
+/* Open Sidebar When Checkbox Checked */
+#menu-toggle:checked ~ .sidebar {
+    left: 0;
+}
+
+/* Menu Button */
+.menu-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #0d1b2a;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1100;
+    transition: background 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: #00c4ff;
+}
+
+/* Content Area */
+.content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Shift Content When Sidebar Opens */
+#menu-toggle:checked ~ .content {
+    margin-left: 250px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    #menu-toggle:checked ~ .content {
+        margin-left: 220px;
+    }
+}
+@media (max-width: 480px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    #menu-toggle:checked ~ .content {
+        margin-left: 200px;
+    }
+
+    .menu-btn {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+}
