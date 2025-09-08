@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS Sidebar</title>
+    <link rel="stylesheet" href="sidebar.css">
+    <script src="https://kit.fontawesome.com/055b3e1e27.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Sidebar Toggle -->
+<input type="checkbox" id="toggle" />
+
+<!-- Sidebar -->
+<aside class="sidebar">
+    <label for="toggle" class="toggle-btn">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+
+    <ul class="sidebar-links">
+        <li><a href="#home" class="active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></li>
+        
+        <!-- Dropdown -->
+        <li class="has-submenu">
+            <a href="#"><i class="fa-solid fa-briefcase"></i><span>Services</span></a>
+            <ul class="submenu">
+                <li><a href="#web">Web Development</a></li>
+                <li><a href="#app">App Development</a></li>
+                <li><a href="#seo">SEO Optimization</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
+    </ul>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hover the sidebar to expand, or collapse it using the toggle button.</p>
+    </section>
+</main>
+
+</body>
+</html>
