@@ -1,0 +1,113 @@
+:root {
+  --sidebar-width: 200px;
+  --sidebar-collapsed: 60px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+/* Hide checkbox */
+#toggle {
+  display: none;
+}
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-collapsed);
+  background-color: rgb(34, 74, 168);
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  padding-top: 60px;
+  position: relative;
+}
+
+/* Sidebar items */
+.sidebar .menu a, .sidebar .menu .dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.sidebar .menu i {
+  min-width: 20px;
+}
+
+.sidebar .menu a:hover, .sidebar .menu .dropdown > a:hover {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+/* Sidebar toggle button */
+.bttn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  background:rgb(26, 16, 84);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+/* Expand on hover */
+.sidebar:hover {
+  width: var(--sidebar-width);
+}
+.sidebar:hover .text {
+  display: inline;
+}
+
+/* Show full sidebar when checkbox checked */
+#toggle:checked ~ .sidebar {
+  width: var(--sidebar-width);
+}
+#toggle:checked ~ .sidebar .text {
+  display: inline;
+}
+
+/* Hide text initially */
+.sidebar .text {
+  display: none;
+}
+
+/* --- CSS-only Dropdown --- */
+.dropdown .submenu {
+  display: none;
+  flex-direction: column;
+  padding-left: 20px;
+  background-color: rgba(255,255,255,0.05);
+}
+.dropdown:hover .submenu {
+  display: flex;
+}
+.dropdown .submenu a {
+  font-size: 16px;
+  padding: 8px 16px;
+  gap: 5px;
+}
+
+/* Active link highlight using :target */
+.sidebar a:target, .dropdown > a:target {
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+
+/* Main content */
+.main {
+  flex: 1;
+  padding: 40px;
+  background: linear-gradient(45deg, #1a1054, #255ff1);
+  color: white;
+  overflow-y: auto;
+}

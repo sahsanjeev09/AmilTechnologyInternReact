@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Example</title>
+  <link rel="stylesheet" href="sidebar.css">
+  <script src="https://kit.fontawesome.com/055b3e1e27.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <input type="checkbox" id="toggle">
+
+  <!-- Sidebar Section -->
+  <aside class="sidebar">
+    <label for="toggle" class="bttn">☰</label>
+    <nav class="menu">
+        <a href="#home" id="home"><i class="fa-solid fa-house"></i><span class="text">Home</span></a>
+        <a href="#about" id="about"><i class="fa-solid fa-user"></i><span class="text">About Me</span></a>
+        
+        <!-- Dropdown -->
+        <div class="dropdown">
+          <a href="#services" id="services"><i class="fa-brands fa-servicestack"></i><span class="text">Services</span></a>
+          <div class="submenu">
+            <a href="#web">Web Design</a>
+            <a href="#ui">UI/UX</a>
+            <a href="#cyber">Cyber Security</a>
+          </div>
+        </div>
+        <a href="#contact" id="contact"><i class="fa-solid fa-phone"></i><span class="text">Contact</span></a>
+    </nav>
+  </aside>
+</body>
+</html>

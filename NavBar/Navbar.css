@@ -36,7 +36,7 @@ main {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #fff;
+    color: white;
 }
 
 /* Nav Links */
@@ -50,7 +50,7 @@ main {
 
 .nav-links li a {
     text-decoration: none;
-    color: #fff;
+    color: white;
     font-weight: 500;
     padding: 8px 12px;
     border-radius: 6px;
@@ -61,41 +61,54 @@ main {
 
 .nav-links li a:hover{
     background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    color: white;
 }
 
-/* Responsive for all devices */
-
-@media (min-width: 1600px) {
-    .nav-links {
-        gap: 25px;
-    }
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
 }
 
-@media (max-width: 1440px) {
-    .nav-links {
-        gap: 20px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-    .nav-links {
-        gap: 15px;
-    }
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
     }
+
     .nav-links {
+        display: none; /* hide links by default */
         flex-direction: column;
-        gap: 12px;
-        margin-top: 10px;
+        gap: 10px;
+        position: absolute; /* dropdown */
+        top: 60px; /* below navbar */
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #224aa8, #b56fdc);
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 12px;
+        text-align: center;
     }
 }
 
@@ -103,20 +116,8 @@ main {
     .logo {
         font-size: 20px;
     }
-    .nav-links {
-        gap: 8px;
-    }
     .nav-links li a {
         font-size: 14px;
         padding: 6px 10px;
-    }
-}
-
-@media (max-width: 320px) {
-    .logo {
-        font-size: 18px;
-    }
-    .nav-links li a {
-        font-size: 13px;
     }
 }
