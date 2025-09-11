@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: rgb(147, 176, 214);
+  padding: 40px;
+  color: gray;
+}
+
+h2 {
+  text-align: center;
+  color: black; 
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 30px auto;
+  padding: 28px 36px;     
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .18s;
+  background: white;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px 0;
+  border: 1px solid lightgray; 
+  border-radius: 10px;
+  font-size: 15px;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: blue; 
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,0,255,0.25); 
+}
+
+.msg {
+  display: block;
+  margin: 6px 0 10px;
+  font-size: 14px;
+  text-align: center;
+}
+.error { color: crimson; }    
+.success { color: seagreen; } 
+
+form button {
+  width: 50%;                
+  display: block;
+  margin: 14px auto 0;       
+  padding: 10px 34px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(45deg, navy, royalblue); 
+  color: white;
+  box-shadow: 0 6px 14px rgba(0,0,255,0.12);
+  transition: transform .12s, box-shadow .12s;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,255,0.18);
+}
+
+table {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px 12px;
+  border-bottom: 1px solid gainsboro; 
+  text-align: center;
+  font-size: 15px;
+}
+
+th {
+  background: dodgerblue; 
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:hover {
+  background: aliceblue; 
+}
+
+.action-btn {
+  padding: 6px 14px;
+  margin: 2px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.edit-btn { background: green; color: white; }
+.delete-btn { background: red; color: white; }
+
+.edit-btn:hover { background: darkgreen; }
+.delete-btn:hover { background: darkred; }
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  form, table {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  form button {
+    width: 70%;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
