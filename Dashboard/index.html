@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2>Dashboard</h2>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Stats Cards -->
+    <section class="cards">
+      <div class="card">128 <br><small>Total Menus</small></div>
+      <div class="card">400 <br><small>Revenue</small></div>
+      <div class="card">678 <br><small>Items Sold</small></div>
+      <div class="card">128 <br><small>Total Orders</small></div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts">
+      <div class="chart-box">
+        <h3>Earnings</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Categories</h3>
+        <canvas id="donutChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Orders From -->
+    <section class="chart-box">
+      <h3>Orders From</h3>
+      <div class="progress-bar">
+        <div class="progress-label"><span>Dine-in</span><span>92%</span></div>
+        <div class="bar"><div class="bar-fill dinein"></div></div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-label"><span>Takeaway</span><span>5%</span></div>
+        <div class="bar"><div class="bar-fill takeaway"></div></div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-label"><span>Online</span><span>3%</span></div>
+        <div class="bar"><div class="bar-fill online"></div></div>
+      </div>
+    </section>
+
+    <!-- Top Selling Items -->
+    <section class="top-items">
+      <h3>Top Selling Items</h3>
+      <div class="item">
+        <img src="https://img.freepik.com/free-photo/delicious-pizza-studio_23-2151846547.jpg?semt=ais_incoming&w=740&q=80" alt="Italiano Pizza">
+        <div class="item-info"><b>Italiano Pizza</b><br><small>124 times</small></div>
+        <div class="price">$12.56</div>
+      </div>
+      <div class="item">
+        <img src="https://img.freepik.com/free-photo/cheese-momos_23-2151846547.jpg?semt=ais_incoming&w=740&q=80" alt="Cheese Momos">
+        <div class="item-info"><b>Cheese Momos</b><br><small>116 times</small></div>
+        <div class="price">$12.56</div>
+      </div>
+      <div class="item">
+        <img src="https://img.freepik.com/free-photo/delicious-pizza-studio_23-2151846547.jpg?semt=ais_incoming&w=740&q=80" alt="French Fries">
+        <div class="item-info"><b>French Fries</b><br><small>200 times</small></div>
+        <div class="price">$12.56</div>
+      </div>
+      <div class="item">
+        <img src="https://img.freepik.com/free-photo/cheese-sandwich_23-2151846547.jpg?semt=ais_incoming&w=740&q=80" alt="Cheese Sandwich">
+        <div class="item-info"><b>Cheese Sandwich</b><br><small>50 times</small></div>
+        <div class="price">$12.56</div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
