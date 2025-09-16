@@ -12,8 +12,10 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
 // Render table
 function renderTable() {
-  userTable.innerHTML = users.map((user, i) => `
-    <tr>
+  userTable.innerHTML = "";
+  users.forEach((user, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
       <td>${i + 1}</td>
       <td>${user.name}</td>
       <td>${user.email}</td>
@@ -21,11 +23,13 @@ function renderTable() {
         <button class="action-btn edit-btn" onclick="editUser(${i})">Edit</button>
         <button class="action-btn delete-btn" onclick="deleteUser(${i})">Delete</button>
       </td>
-    </tr>
-  `).join("");
+    `;
+    if (i === users.length - 1) row.classList.add("added"); // highlight last added
+    userTable.appendChild(row);
+  });
 }
 
-// Save to localStorage + cookie
+// Storing data to localStorage + cookie
 function saveData() {
   localStorage.setItem("users", JSON.stringify(users));
   document.cookie = `lastUser=${JSON.stringify(users.at(-1))}; path=/; max-age=604800`;
@@ -71,6 +75,7 @@ function editUser(i) {
 
 // Delete user
 function deleteUser(i) {
+  if (!confirm("Are you sure you want to delete this user?")) return;
   users.splice(i, 1);
   saveData();
   renderTable();
