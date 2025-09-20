@@ -74,12 +74,34 @@ function editUser(i) {
 }
 
 // Delete user
+let deleteIndex = -1;
+const modal = document.getElementById("deleteModal");
+const confirmDeleteBtn = document.getElementById("confirmDelete");
+const cancelDeleteBtn = document.getElementById("cancelDelete");
+
+// Trigger modal
 function deleteUser(i) {
-  if (!confirm("Are you sure you want to delete this user?")) return;
-  users.splice(i, 1);
+  deleteIndex = i;
+  modal.style.display = "flex"; // show modal
+}
+
+// Confirm delete
+confirmDeleteBtn.onclick = () => {
+  users.splice(deleteIndex, 1);
   saveData();
   renderTable();
-}
+  modal.style.display = "none"; // close modal
+};
+
+// Cancel delete
+cancelDeleteBtn.onclick = () => {
+  modal.style.display = "none"; // close modal
+};
+
+// Close modal if clicking outside
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
 
 // Initial render
 renderTable();
