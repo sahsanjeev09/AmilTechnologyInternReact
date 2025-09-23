@@ -36,6 +36,7 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
+// Button events
 nextBtn.addEventListener('click', () => {
   nextSlide();
   resetAutoSlide();
@@ -46,9 +47,11 @@ prevBtn.addEventListener('click', () => {
   resetAutoSlide();
 });
 
+// Pause on hover
 slider.addEventListener('mouseenter', stopAutoSlide);
 slider.addEventListener('mouseleave', startAutoSlide);
 
+// Touch swipe (mobile)
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -64,14 +67,43 @@ slider.addEventListener('touchend', (e) => {
 function handleSwipe() {
   const swipeDistance = touchEndX - touchStartX;
 
-  if (swipeDistance > 50) {      // swipe right
+  if (swipeDistance > 50) {      
     prevSlide();
     resetAutoSlide();
-  } else if (swipeDistance < -50) { // swipe left
+  } else if (swipeDistance < -50) { 
     nextSlide();
     resetAutoSlide();
   }
 }
 
+// Drag 
+let isDragging = false;
+let startX = 0;
+let endX = 0;
+
+slider.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startX = e.pageX;   // where mouse started
+});
+
+slider.addEventListener('mouseup', (e) => {
+  if (!isDragging) return;
+  isDragging = false;
+  endX = e.pageX;     // where mouse ended
+  handleDrag();
+});
+
+function handleDrag() {
+  const dragDistance = endX - startX;
+
+  if (dragDistance > 50) {   // dragged right
+    prevSlide();
+    resetAutoSlide();
+  } else if (dragDistance < -50) { // dragged left
+    nextSlide();
+    resetAutoSlide();
+  }
+}
+ 
 showSlide(currentIndex);
 startAutoSlide();
