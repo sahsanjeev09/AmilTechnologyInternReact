@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/component/input.css";
 
 const Input = ({ label, placeholder = "Placeholder" }) => {
   return (
